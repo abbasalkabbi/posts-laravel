@@ -30,12 +30,12 @@
                 <a href="" class="p-3">Abbas </a>
             </li>
             <li>
-                <a href="" class="p-3">Logout</a>
+                <a href="{{route('logout')}}" class="p-3">Logout</a>
                </li>
             @else
             {{-- if user not loggin --}}
             <li>
-                <a href=""class="p-3" >Login</a>
+                <a href="{{route('login')}}"class="p-3" >Login</a>
             </li>
             <li>
                 <a href="{{route("register")}}" class="p-3">Register</a>
