@@ -24,18 +24,23 @@
         </ul>
 
         <ul class="flex item-center">
+            {{-- if user loggin --}}
+            @if(auth()->user())
             <li>
                 <a href="" class="p-3">Abbas </a>
             </li>
             <li>
-               <a href=""class="p-3" >Login</a>
-           </li>
-           <li>
-               <a href="{{route("register")}}" class="p-3">Register</a>
-           </li>
-           <li>
-            <a href="" class="p-3">Logout</a>
-           </li>
+                <a href="" class="p-3">Logout</a>
+               </li>
+            @else
+            {{-- if user not loggin --}}
+            <li>
+                <a href=""class="p-3" >Login</a>
+            </li>
+            <li>
+                <a href="{{route("register")}}" class="p-3">Register</a>
+            </li>
+            @endif
        </ul>
 
     </nav>
