@@ -27,7 +27,7 @@
             {{-- if user loggin --}}
             @if(auth()->user())
             <li>
-                <a href="" class="p-3">Abbas </a>
+                <a href="{{route('dashboard')}}" class="p-3">{{auth()->user()->name}} </a>
             </li>
             <li>
                 <a href="{{route('logout')}}" class="p-3">Logout</a>

@@ -20,9 +20,9 @@ Route::get('/', function () {
     return view('posts.index');
 })->name('home');
 Route::get('/dashboard',[DashboardController::class,"index"])->name('dashboard') ->middleware('auth');
-Route::get('/login',[LoginController::class,'index'])->name('login');
+Route::get('/login',[LoginController::class,'index'])->name('login')->middleware('guest');
 Route::post('/login',[LoginController::class,'login']);
-Route::get('/register',[RegisterController::class,'index'])->name("register");
+Route::get('/register',[RegisterController::class,'index'])->name("register")->middleware('guest');
 Route::post('/register',[RegisterController::class,'store']);
 Route::get('/logout',[LogoutController::class,'logout'])->name('logout');
 
