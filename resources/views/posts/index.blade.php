@@ -44,7 +44,14 @@
        @else
        <p>There Is No Post</p>
        @endif
+         {{-- paginate --}}
+         <div class="row">
+            <div class="col-md-12">
+                {{ $posts->links('pagination::tailwind') }}
+            </div>
+        </div>
     </div>
+    
 </div> 
 
 @endsection
