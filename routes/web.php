@@ -17,9 +17,7 @@ use App\Http\Controllers\PostsController;
 |
 */
 
-Route::get('/', function () {
-    return view('posts.index');
-})->name('home');
+Route::get('/',[PostsController::class,'index'])->name('home');
 
 // show dashboard
 Route::get('/dashboard',[DashboardController::class,"index"])->name('dashboard') ->middleware('auth');
