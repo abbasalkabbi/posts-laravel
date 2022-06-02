@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\PostLikeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,9 +22,6 @@ Route::get('/',[PostsController::class,'index'])->name('home');
 
 // show dashboard
 Route::get('/dashboard',[DashboardController::class,"index"])->name('dashboard') ->middleware('auth');
-// show posts
-Route::get('/posts',[PostsController::class,'index'])->name('posts');
-Route::post('/posts',[PostsController::class,'store']);
 /**
  * login  
  * Register 
@@ -40,4 +38,12 @@ Route::get('/register',[RegisterController::class,'index'])->name("register")->m
 Route::post('/register',[RegisterController::class,'store']);
 // logout
 Route::get('/logout',[LogoutController::class,'logout'])->name('logout');
+
+// show posts
+Route::get('/posts',[PostsController::class,'index'])->name('posts');
+Route::post('/posts',[PostsController::class,'store']);
+// like post 
+Route::post('/post/{post}/like',[PostLikeController::class,'store'])->name('post.like');
+Route::delete('/post/{post}/unlike',[PostLikeController::class,'dstore'])->name('post.unlike');
+
 

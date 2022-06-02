@@ -40,6 +40,25 @@
                       {{$post->body}}
                   </p>
               </div>
+              <div class="flex items-center">
+                    {{-- like form --}}
+                    @if(!$post->likedBy(auth()->user()))
+                    <form action="{{route("post.like",$post->id)}}" method="POST" class="mr-1">
+                        @csrf
+                        <button type="submit" class="text-blue-500">Like</button>
+                    </form>
+                    {{-- like form ENd --}}
+                    @else
+                     {{-- unlike form --}}
+                     <form action="{{route("post.unlike",$post->id)}}" method="POST" class="mr-1">
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit" class="text-blue-500">UnLike</button>
+                    </form>
+                    {{-- unlike form ENd --}}
+                    @endif
+                    <span>{{$post->likes->count()}}{{Str::plural("like",$post->likes->count())}}</span>
+              </div>
           @endforeach
        @else
        <p>There Is No Post</p>
